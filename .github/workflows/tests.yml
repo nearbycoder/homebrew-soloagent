@@ -1,0 +1,20 @@
+name: brew test
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: Homebrew/actions/setup-homebrew@main
+      - run: brew audit --strict --online nearbycoder/soloagent/soloagent
+      - run: brew install --build-from-source nearbycoder/soloagent/soloagent
+      - run: brew test nearbycoder/soloagent/soloagent
+      - run: soloagent --version
