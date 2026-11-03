@@ -1,8 +1,8 @@
 class Soloagent < Formula
   desc "Self-hosted control plane for durable AI agents"
   homepage "https://soloagent.dev"
-  url "https://github.com/nearbycoder/soloagent.dev/releases/download/v0.1.1/soloagent-0.1.1.tgz"
-  sha256 "709f0322982a9e7da8b973e75bd729f4b1953ba7009224ca3700bc44ad639d2f"
+  url "https://github.com/nearbycoder/soloagent.dev/releases/download/v0.2.0/soloagent-0.2.0.tgz"
+  sha256 "73f5beb41094d8c1088c0c357adf17082c2941153c0169d14337ea8dfc0a92a8"
   license "MIT"
 
   livecheck do
