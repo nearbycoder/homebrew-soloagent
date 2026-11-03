@@ -33,7 +33,9 @@ Upgrade with `brew upgrade soloagent`. The formula depends on Homebrew's `node` 
 node scripts/update-homebrew.mjs ../homebrew-soloagent/Formula/soloagent.rb --version 0.1.1
 ```
 
-The workflow in this repo runs `brew audit`, installs the formula from source, and runs its test on macOS and Linux.
+The workflow in this repo runs `brew audit --strict --new`, installs the formula from source, and runs its test on macOS and Linux, on every push and daily.
+
+Homebrew installs npm packages with a one-day release cooldown (`--min-release-age=1`). If a soloagent release depends on a package version published in the last 24 hours, `brew install` fails with `ETARGET … with a date before …` until that version is a day old. Retry the next day.
 
 Issues with soloagent itself belong in [nearbycoder/soloagent.dev](https://github.com/nearbycoder/soloagent.dev/issues).
 
